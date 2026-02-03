@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>The One Where You Become My Valentine ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }body {
+  margin: 0;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fef6e4, #fcd5ce);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+.confetti span {
+  position: absolute;
+  top: -20px;
+  font-size: 18px;
+  animation: fall 6s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes fall {
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(120vh) rotate(360deg); }
+}
+
+.card {
+  background: #fff;
+  padding: 30px 22px 38px;
+  border-radius: 26px;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+  text-align: center;
+  width: min(92vw, 360px);
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+h1 {
+  margin-bottom: 18px;
+  color: #e63946;
+  font-size: 1.35rem;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 26px;
+}
+
+.buttons {
+  position: relative;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+}
+
+button {
+  padding: 14px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  touch-action: manipulation;
+}
+
+#yes {
+  background: #e63946;
+  color: white;
+  box-shadow: 0 12px 26px rgba(230, 57, 70, 0.45);
+  animation: pop 2s infinite;
+}
+
+@keyframes pop {
+  0%,100%{ transform: scale(1);} 
+  50%{ transform: scale(1.05);} 
+}
+
+#yes:active {
+  transform: scale(0.94);
+}
+
+#no {
+  background: #e0e0e0;
+  color: #555;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+  </style>
+</head>
+<body>  <div class="confetti">
+    <span style="left:10%; animation-delay:0s">💛</span>
+    <span style="left:30%; animation-delay:1s">💙</span>
+    <span style="left:50%; animation-delay:0.5s">❤️</span>
+    <span style="left:70%; animation-delay:1.5s">💜</span>
+    <span style="left:85%; animation-delay:0.2s">💚</span>
+  </div>  <div class="card">
+    <div class="header">It’s Time When I Ask You…</div>
+    <h1>Will you be my Valentine?</h1>
+    <div class="subtitle"></div><div class="buttons">
+  <button id="yes" onclick="yesClick()">Yes ❤️</button>
+  <button id="no">No 😬</button>
+</div>
+
+  </div>  <script>
+    const noBtn = document.getElementById('no');
+
+    function moveNoButton() {
+      const maxX = window.innerWidth / 2 - 40;
+      const maxY = window.innerHeight / 4;
+
+      const x = (Math.random() * maxX * 2) - maxX;
+      const y = (Math.random() * maxY * 2) - maxY;
+
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    noBtn.addEventListener('mouseenter', moveNoButton);
+    noBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
+
+    function yesClick() {
+      document.body.innerHTML = `
+        <div style="text-align:center; padding:24px; color:#e63946;">
+          <div style="font-size:64px;">🎉❤️☕</div>
+          <h1 style="font-size:2rem; margin:12px 0;">We are on a break…</h1>
+          <p style="font-size:1.2rem;">Nevertheless,It’s a DATE! 😍</p>
+          
+        </div>`;
+    }
+  </script></body>
+</html>
